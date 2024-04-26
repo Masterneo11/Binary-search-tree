@@ -78,13 +78,14 @@ class BinarySearchTree:
                 current_node = current_node.right
                 
     def serialize(self) -> str:
-        
         a = []
         self.traverse(self.root, a)
-        for i in range(len(a)):
-            a[i] = str(a[i])
-        b = ''.join(a)
-        return b
+        val = []
+        for i in a:
+            val.append(str(i))
+        bstring = ''.join(val)
+        return bstring
+
     
     def deserialize(self, tree: str) -> None:
         
@@ -141,13 +142,13 @@ def main():
     num = [9, 8, 7, 6, 5, 4, 3, 2, 12]
     for i in num:
         bst.insert(i)
-    #print(bst.in_order_traversal())
+    print(bst.in_order_traversal())
     print(bst.count_leaves()) 
     print(bst.height())
     print(bst.find_max())
     print(bst.find_min())
     print(bst.in_order_traversal())
-    print(bst.serialize())
+    print(f"{bst.serialize()} serialize")
     tree = "123654"
     print(bst.deserialize(tree))
     print(bst.count_leaves())    
