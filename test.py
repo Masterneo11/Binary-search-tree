@@ -1,4 +1,4 @@
-from bssst import BinarySearchTree
+from bst import BinarySearchTree
 import pytest
 
 @pytest.fixture

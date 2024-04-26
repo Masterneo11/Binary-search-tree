@@ -81,7 +81,6 @@ class BinarySearchTree:
         
         a = []
         self.traverse(self.root, a)
-        a.sort()
         for i in range(len(a)):
             a[i] = str(a[i])
         b = ''.join(a)
@@ -95,22 +94,18 @@ class BinarySearchTree:
         self.root = None
         for i in a:
             self.insert(i)
-        
                 
     def traverse(self, root, a:list):
+        
         if root:
             self.traverse(root.left, a)
+            a.append(root.value)  
             self.traverse(root.right, a)
-            #print(root.value)
-            a.append(root.value)
-            
-            return a
-    
-    
+
     def in_order_traversal(self) -> list[int]:
+        
         a = []
-        b = self.traverse(self.root, a)
-        a.sort()
+        self.traverse(self.root, a)
         return a
     
     def recusive_height(self, root):
@@ -143,10 +138,10 @@ class BinarySearchTree:
     
 def main():
     bst = BinarySearchTree()
-    bst.insert(8)
-    bst.insert(9)
-    bst.insert(6)
-    bst.insert(7)
+    num = [9, 8, 7, 6, 5, 4, 3, 2, 12]
+    for i in num:
+        bst.insert(i)
+    #print(bst.in_order_traversal())
     print(bst.count_leaves()) 
     print(bst.height())
     print(bst.find_max())
