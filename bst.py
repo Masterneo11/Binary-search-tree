@@ -83,7 +83,7 @@ class BinarySearchTree:
         val = []
         for i in a:
             val.append(str(i))
-        bstring = ''.join(val)
+        bstring = ' , '.join(val)
         return bstring
 
     
@@ -139,7 +139,7 @@ class BinarySearchTree:
     
 def main():
     bst = BinarySearchTree()
-    num = [9, 8, 7, 6, 5, 4, 3, 2, 12]
+    num = [9, 88, 550, 7, 32000]
     for i in num:
         bst.insert(i)
     print(bst.in_order_traversal())
