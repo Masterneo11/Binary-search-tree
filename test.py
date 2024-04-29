@@ -1,25 +1,28 @@
-from bst import BinarySearchTree
+from bst import BST
 import pytest
 
 @pytest.fixture
 def create_a_bst():
-    a = BinarySearchTree()
+    a = BST()
     b = [7, 9, 550, 32000, 88]
     for i in b:
         a.insert(i)
+        print(a)
     return a
         
 def test_serialize(create_a_bst):
-    
-    expected = "7 , 9 , 88 , 550 , 32000"
+    expected = "7,9,550,88,32000"
     assert create_a_bst.serialize() == expected
     
 def test_deserialize():
+    tree = "9,55,11,4"
+    a = BST()
+    a.deserialize(tree)
+    assert a.root.value == 9
+    assert a.root.right.value == 55
+    assert a.root.right.left.value == 11
+    assert a.root.left.value == 4
 
-    expected = "123456789"
-    c = BinarySearchTree()
-    c.deserialize(expected)
-    assert c.in_order_traversal() == [1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 
 def test_search(create_a_bst):
     
